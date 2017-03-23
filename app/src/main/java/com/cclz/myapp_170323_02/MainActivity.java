@@ -96,4 +96,24 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.show();
     }
+
+    public void click4(View v){
+        AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("列表測試");
+        final String fruits[] = getResources().getStringArray(R.array.fruits);
+        builder.setItems(R.array.fruits, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                TextView tv3=(TextView)findViewById(R.id.textView3);
+                tv3.setText(fruits[which]);
+            }
+        });
+        builder.setNeutralButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.d("DLG", "使用者按下取消");
+            }
+        });
+        builder.show();
+    }
 }
