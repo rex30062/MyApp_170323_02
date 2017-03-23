@@ -8,6 +8,7 @@ import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -165,6 +166,14 @@ public class MainActivity extends AppCompatActivity {
 
         LayoutInflater inflater=LayoutInflater.from(MainActivity.this);
         View myv=inflater.inflate(R.layout.custom_dialog_layout, null);
+        Button btn= (Button)myv.findViewById(R.id.button6);
+        final TextView tv5=(TextView)myv.findViewById(R.id.textView5);  // 匿名物件宣告需 + final
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv5.setText("Hello World!");    // 匿名物件宣告需 + final
+            }
+        });
         builder.setView(myv);
 
         builder.setNeutralButton("取消", new DialogInterface.OnClickListener() {
