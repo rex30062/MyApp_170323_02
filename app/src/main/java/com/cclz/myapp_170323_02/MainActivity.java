@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
     public void click5(View v){
         AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("多選測試");
+        final String fruits[] = getResources().getStringArray(R.array.fruits);
         builder.setMultiChoiceItems(R.array.fruits, chks, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
@@ -133,7 +134,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Log.d("DLG", "使用者按下確定");
-
+                StringBuilder sb=new StringBuilder();
+                for (int i=0;i<fruits.length;i++){
+                    if (chks[i]){
+                        sb.append(fruits[i] + ",");
+                    }
+                }
+                TextView tv4 = (TextView) findViewById(R.id.textView4);
+                tv4.setText(sb.toString());
             }
         });
         builder.setNeutralButton("取消", new DialogInterface.OnClickListener() {
