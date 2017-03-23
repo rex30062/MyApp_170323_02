@@ -83,9 +83,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Log.d("DLG", "使用者按下確定");
-                TextView tv2=(TextView)findViewById(R.id.textView2);
-                s = tmp;
-                tv2.setText(fruits[s]);
+                if(tmp > -1){   // 沒有任何選擇會Err 的錯誤判斷
+                    TextView tv2=(TextView)findViewById(R.id.textView2);
+                    s = tmp;
+                    tv2.setText(fruits[s]);
+                }
             }
         });
         builder.setNeutralButton("取消", new DialogInterface.OnClickListener() {
