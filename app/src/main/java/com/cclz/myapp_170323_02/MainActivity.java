@@ -1,5 +1,6 @@
 package com.cclz.myapp_170323_02;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -183,5 +184,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+
+    public void click7(View v){
+        final ProgressDialog pd=new ProgressDialog(MainActivity.this);
+        pd.setCancelable(false);
+        pd.setTitle("進度框");
+        pd.setMessage("讀取中請稍後");
+        pd.show();
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                try{
+                    Thread.sleep(3000);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }
+                pd.dismiss();
+            }
+        }.start();
     }
 }
