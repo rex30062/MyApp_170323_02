@@ -90,5 +90,5 @@
         android:layout_alignBottom="@+id/button5"
         android:layout_alignStart="@+id/textView3"
         android:id="@+id/textView4"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 </RelativeLayout>
